@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back"
+    android:weightSum="1">
+
+    <CalendarView
+        android:layout_width="fill_parent"
+        android:layout_height="250dp"
+        android:focusedMonthDateColor="#000000"
+        android:weekNumberColor="#000000"
+        android:unfocusedMonthDateColor="#000000"
+        android:id="@+id/calendar">
+    </CalendarView>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:id="@+id/eventText"
+        android:layout_marginTop="10dp"
+        android:scrollbarStyle="insideInset"
+        android:scrollbarSize="20dp"
+        android:background="#55f361dc"
+        android:textColor="#000000"
+        android:hint="이벤트 입력" />
+
+    <Spinner
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="#33000000"
+        android:textAlignment="center"
+        android:scrollbarStyle="insideInset"
+        android:id="@+id/spinner"
+        android:layout_gravity="center"
+        android:entries="@array/category_arrays"
+        android:prompt="@string/category_prompt">
+    </Spinner>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/cameraBtn"
+        android:text="카메라"
+        android:textStyle="bold"
+        android:textSize="25dp"/>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/logBtn"
+        android:text="입력"
+        android:textStyle="bold"
+        android:textSize="25dp" />
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/backBtn"
+        android:text="취소"
+        android:textStyle="bold"
+        android:textSize="25dp" />
+
+</LinearLayout>

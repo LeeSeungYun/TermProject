@@ -1,0 +1,15 @@
+<resources>
+<string name="app_name">LifeLogger</string>
+<string name="category_prompt">Choose a category</string>
+
+<string-array name="category_arrays">
+    <item>공부</item>
+    <item>데이트</item>
+    <item>노동</item>
+    <item>이동중</item>
+    <item>식사</item>
+    <item>운동</item>
+    <item>여행</item>
+    <item>기타</item>
+</string-array>
+</resources>

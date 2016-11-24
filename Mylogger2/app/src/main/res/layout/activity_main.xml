@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/main"
+    tools:context="com.example.leeseungyun.mylogger2.MainActivity">
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:id="@+id/logEvent"
+        android:text="이벤트 기록"
+        android:textSize="25dp"
+        android:textStyle="bold"/>
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:id="@+id/viewMap"
+        android:text="지도보기"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_below="@id/logEvent"/>
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:id="@+id/statistic"
+        android:text="통계"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_below="@id/viewMap"/>
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:id="@+id/goal"
+        android:text="목표관리"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_below="@id/statistic"/>
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:id="@+id/reset"
+        android:text="초기화"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_below="@id/goal"/>
+</RelativeLayout>
+
+
+
