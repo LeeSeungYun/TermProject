@@ -16,6 +16,7 @@
         android:id="@+id/logEvent"
         android:text="이벤트 기록"
         android:textSize="25dp"
+        android:textColor="#000000"
         android:textStyle="bold"/>
     <Button
         android:layout_width="fill_parent"
@@ -23,6 +24,7 @@
         android:id="@+id/viewMap"
         android:text="지도보기"
         android:textSize="25dp"
+        android:textColor="#000000"
         android:textStyle="bold"
         android:layout_below="@id/logEvent"/>
     <Button
@@ -31,6 +33,7 @@
         android:id="@+id/statistic"
         android:text="통계"
         android:textSize="25dp"
+        android:textColor="#000000"
         android:textStyle="bold"
         android:layout_below="@id/viewMap"/>
     <Button
@@ -39,6 +42,7 @@
         android:id="@+id/goal"
         android:text="목표관리"
         android:textSize="25dp"
+        android:textColor="#000000"
         android:textStyle="bold"
         android:layout_below="@id/statistic"/>
     <Button
@@ -47,6 +51,7 @@
         android:id="@+id/reset"
         android:text="초기화"
         android:textSize="25dp"
+        android:textColor="#000000"
         android:textStyle="bold"
         android:layout_below="@id/goal"/>
 </RelativeLayout>

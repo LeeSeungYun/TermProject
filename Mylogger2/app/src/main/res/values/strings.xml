@@ -12,4 +12,16 @@
     <item>여행</item>
     <item>기타</item>
 </string-array>
+
+<string-array name="select_arrays">
+    <item>전체</item>
+    <item>공부</item>
+    <item>데이트</item>
+    <item>노동</item>
+    <item>이동중</item>
+    <item>식사</item>
+    <item>운동</item>
+    <item>여행</item>
+    <item>기타</item>
+</string-array>
 </resources>

@@ -29,15 +29,10 @@ public class MapView extends FragmentActivity {
         super.onCreate(saveInstanceState);
         setContentView(R.layout.activity_map);
 
-        DataList datall = new DataList();
 
         gmap = ((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
         gmap.animateCamera(CameraUpdateFactory.newCameraPosition(cp));
 
-        for(int i = 0 ; i < datall.arr_str.size(); i++){
-            LatLng pinmark = new LatLng(datall.arr_lat.get(i),datall.arr_lon.get(i));
-            marker = new MarkerOptions().position(pinmark).title(datall.arr_str.get(i));
-            gmap.addMarker(marker);
-        }
+
     }
 }
