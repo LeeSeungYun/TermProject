@@ -11,16 +11,34 @@
         android:layout_marginTop="20dp"
         android:id="@+id/selectSpinner"
         android:entries="@array/select_arrays"
-        android:prompt="@string/category_prompt">
+        android:prompt="@string/category_prompt"
+        android:background="#33000000"
+        android:scrollbarStyle="insideInset">
     </Spinner>
 
-    <TextView
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/eventContents"
-        android:text="statistics"
-        android:layout_marginTop="20dp"
-        android:textSize="15dp"
-        android:scrollbarStyle="insideOverlay"/>
+        android:text="검색"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:id="@+id/statisticSearch"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/eventContents"
+                android:text="statistics"
+                android:layout_marginTop="20dp"
+                android:textSize="15dp" />
+        </ScrollView>
+
+    </LinearLayout>
 
 </LinearLayout>

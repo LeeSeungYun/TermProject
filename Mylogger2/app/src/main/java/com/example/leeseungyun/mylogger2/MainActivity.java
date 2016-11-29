@@ -32,6 +32,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         checkDangerousPermissions();
 
+        final DBManager dbManager = new DBManager(getApplicationContext(),"Logger.db",null,1);
+
         Button eventlogBtn = (Button) findViewById(R.id.logEvent);
         Button viewmapBtn = (Button) findViewById(R.id.viewMap);
         Button statisticBtn = (Button) findViewById(R.id.statistic);
@@ -74,6 +76,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 //데이터 베이스 삭제
+                dbManager.clear();
                 Toast.makeText(getApplicationContext(),"모두 삭제되었습니다.",LENGTH_SHORT).show();
             }
         });

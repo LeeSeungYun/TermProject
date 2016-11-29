@@ -2,6 +2,9 @@ package com.example.leeseungyun.mylogger2;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -23,12 +26,25 @@ public class Statistics extends FragmentActivity{
         super.onCreate(saveInstanceState);
         setContentView(R.layout.activity_statistics);
 
-        DBManager dbManager = new DBManager(getApplicationContext(),"Logger.db",null,1);
+        final DBManager dbManager = new DBManager(getApplicationContext(),"Logger.db",null,1);
 
-        TextView statisticContent = (TextView) findViewById(R.id.eventContents);
-        String str = dbManager.printData();
+        final TextView statisticContent = (TextView) findViewById(R.id.eventContents);
+        final Spinner selectitem = (Spinner) findViewById(R.id.selectSpinner);
+        Button searchBtn = (Button) findViewById(R.id.statisticSearch);
 
+        final String str = dbManager.printData();
         statisticContent.setText(str);
+
+        searchBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                String Item = selectitem.getSelectedItem().toString(); //검색하려고 선택한 카테고리
+                if(Item.equals("전체")){
+                    statisticContent.setText(str);
+                }else{
+                    statisticContent.setText(dbManager.select(Item));
+                }
+            }
+       });
 
     }
 
