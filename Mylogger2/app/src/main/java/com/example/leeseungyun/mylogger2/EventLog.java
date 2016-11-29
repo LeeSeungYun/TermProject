@@ -22,6 +22,7 @@ public class EventLog extends AppCompatActivity {
         setContentView(R.layout.activity_eventlog);
 
         final DBManager dbManager = new DBManager(getApplicationContext(),"Logger.db",null,1);
+        final GetGPS getGPS = new GetGPS(this);
 
         final CalendarView calendarView = (CalendarView) findViewById(R.id.calendar);
         final EditText content = (EditText) findViewById(R.id.eventText);
@@ -34,12 +35,15 @@ public class EventLog extends AppCompatActivity {
             public void onClick(View view) {
                 Date date = new Date(calendarView.getDate());
                 StringTokenizer strToken = new StringTokenizer(date.toLocaleString()," .");
+                getGPS.getLocation();
+                double lat = getGPS.getLatitude(); //위도
+                double lon = getGPS.getLongitude(); //경도
                 String year = strToken.nextToken(); //년
                 String month = strToken.nextToken(); //월
                 String day = strToken.nextToken(); //일
                 String text = content.getText().toString(); //이벤트 내용
                 String category = spinner.getSelectedItem().toString(); //분류
-                dbManager.insert("insert into EventDB values(null,"+String.valueOf(0.00)+","+String.valueOf(0.000)+","+year+","+month+","+day+",'"+category+"','"+text+"');");
+                dbManager.insert("insert into EventDB values(null,"+String.valueOf(lat)+","+String.valueOf(lon)+","+year+","+month+","+day+",'"+category+"','"+text+"');");
                 finish();
             }
         });

@@ -10,6 +10,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -25,6 +26,10 @@ import static android.widget.Toast.LENGTH_SHORT;
 
 public class MainActivity extends Activity {
     public GetGPS GPS ;
+    static ArrayList<Double> arr_lat = new ArrayList<>(); //위도
+    static ArrayList<Double> arr_lon = new ArrayList<>(); //경도
+    static ArrayList<String> arr_evt = new ArrayList<>(); //이벤트
+    static ArrayList<String> arr_cat = new ArrayList<>(); //카테고리
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

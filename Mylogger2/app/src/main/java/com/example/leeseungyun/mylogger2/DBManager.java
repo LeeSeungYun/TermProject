@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 /**
  * Created by Lee Seung Yun on 2016-11-26.
@@ -44,6 +45,7 @@ public class DBManager extends SQLiteOpenHelper {
         while(cursor.moveToNext()){
             str += cursor.getInt(3)+"년 "+cursor.getInt(4)+"월 "+cursor.getInt(5)+"일 <"+cursor.getString(6)+"> : "+cursor.getString(7)+"\n\n";
         }
+        db.close();
         return str;
     }
 
@@ -61,6 +63,19 @@ public class DBManager extends SQLiteOpenHelper {
         while(cursor.moveToNext()){
             str += cursor.getInt(3)+"년 "+cursor.getInt(4)+"월 "+cursor.getInt(5)+"일 <"+cursor.getString(6)+"> : "+cursor.getString(7)+"\n\n";// yyyy년 mm월 dd일 분류 : ~~ 내용 : ~~
         }
+        db.close();
         return str;
+    }
+
+    public void getMarkerLocation(){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from EventDB",null);
+        while(cursor.moveToNext()){
+            MainActivity.arr_lat.add(cursor.getDouble(1));
+            MainActivity.arr_lon.add(cursor.getDouble(2));
+            MainActivity.arr_cat.add(cursor.getString(6));
+            MainActivity.arr_evt.add(cursor.getString(7));
+        }
+        db.close();
     }
 }
