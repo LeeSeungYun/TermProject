@@ -1,5 +1,6 @@
 package com.example.leeseungyun.mylogger2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
@@ -31,6 +32,7 @@ public class Statistics extends FragmentActivity{
         final TextView statisticContent = (TextView) findViewById(R.id.eventContents);
         final Spinner selectitem = (Spinner) findViewById(R.id.selectSpinner);
         Button searchBtn = (Button) findViewById(R.id.statisticSearch);
+        Button searchmapBtn = (Button) findViewById(R.id.statisticMap);
 
         final String str = dbManager.printData();
         statisticContent.setText(str);
@@ -45,6 +47,14 @@ public class Statistics extends FragmentActivity{
                 }
             }
        });
+
+        searchmapBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent it = new Intent(getApplicationContext(),MapView.class);
+                it.putExtra("category",selectitem.getSelectedItem().toString());
+                startActivity(it);
+            }
+        });
 
     }
 

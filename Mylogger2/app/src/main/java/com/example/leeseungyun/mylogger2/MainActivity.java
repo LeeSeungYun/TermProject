@@ -57,6 +57,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Intent it = new Intent(getApplicationContext(),MapView.class);
+                it.putExtra("category","전체");
                 startActivity(it);
             }
         });

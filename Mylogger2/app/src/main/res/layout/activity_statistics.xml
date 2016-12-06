@@ -24,6 +24,14 @@
         android:textStyle="bold"
         android:id="@+id/statisticSearch"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="선택된 분류 지도"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:id="@+id/statisticMap"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

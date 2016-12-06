@@ -35,6 +35,8 @@ public class MapView extends FragmentActivity {
         setContentView(R.layout.activity_map);
 
         DBManager dbManager = new DBManager(getApplicationContext(),"Logger.db",null,1);
+        Intent it = getIntent();
+        String category = it.getExtras().getString("category");
 
         MainActivity.arr_lat.clear();
         MainActivity.arr_lon.clear();
@@ -43,7 +45,7 @@ public class MapView extends FragmentActivity {
 
         gmap = ((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
         gmap.animateCamera(CameraUpdateFactory.newCameraPosition(cp));
-        dbManager.getMarkerLocation();
+        dbManager.getMarkerLocation(category);
 
         for(int i = 0 ; i < MainActivity.arr_lat.size() ; i++){
             pinLocation = new LatLng(MainActivity.arr_lat.get(i),MainActivity.arr_lon.get(i));
@@ -83,7 +85,5 @@ public class MapView extends FragmentActivity {
             }
             gmap.addMarker(marker);
         }
-
-
     }
 }

@@ -67,9 +67,14 @@ public class DBManager extends SQLiteOpenHelper {
         return str;
     }
 
-    public void getMarkerLocation(){
+    public void getMarkerLocation(String query){
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery("select * from EventDB",null);
+        Cursor cursor;
+        if("전체".equals(query)) {
+            cursor = db.rawQuery("select * from EventDB", null);
+        }else{
+            cursor = db.rawQuery("select * from EventDB where category = '"+query+"'",null);
+        }
         while(cursor.moveToNext()){
             MainActivity.arr_lat.add(cursor.getDouble(1));
             MainActivity.arr_lon.add(cursor.getDouble(2));
