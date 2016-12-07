@@ -3,6 +3,7 @@ package com.example.leeseungyun.mylogger2;
 import android.content.Intent;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -15,6 +16,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 import java.util.ArrayList;
 
@@ -25,8 +27,10 @@ import java.util.ArrayList;
 public class MapView extends FragmentActivity {
     GoogleMap gmap;
     MarkerOptions marker;
+
     LatLng moveLocation = new LatLng(37.559603, 126.982203);
     LatLng pinLocation;
+    LatLng prePinLocation;
     CameraPosition cp = new CameraPosition.Builder().target(moveLocation).zoom(11).build();
 
 
@@ -48,6 +52,7 @@ public class MapView extends FragmentActivity {
         dbManager.getMarkerLocation(category);
 
         for(int i = 0 ; i < MainActivity.arr_lat.size() ; i++){
+            if(i != 0){prePinLocation = pinLocation;}
             pinLocation = new LatLng(MainActivity.arr_lat.get(i),MainActivity.arr_lon.get(i));
             switch(MainActivity.arr_cat.get(i)){
                 case "공부":
@@ -84,6 +89,8 @@ public class MapView extends FragmentActivity {
                     break;
             }
             gmap.addMarker(marker);
+            if( i != 0)
+                gmap.addPolyline(new PolylineOptions().add(prePinLocation,pinLocation).width(5).color(Color.RED));
         }
     }
 }
