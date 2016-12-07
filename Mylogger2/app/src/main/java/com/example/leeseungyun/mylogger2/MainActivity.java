@@ -3,10 +3,12 @@ package com.example.leeseungyun.mylogger2;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -37,7 +39,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         checkDangerousPermissions();
 
-        final DBManager dbManager = new DBManager(getApplicationContext(),"Logger.db",null,1);
+        final DBManager dbManager = new DBManager(getApplicationContext(), "Logger.db", null, 1);
 
         Button eventlogBtn = (Button) findViewById(R.id.logEvent);
         Button viewmapBtn = (Button) findViewById(R.id.viewMap);
@@ -48,7 +50,7 @@ public class MainActivity extends Activity {
         eventlogBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent it = new Intent(getApplicationContext(),EventLog.class);
+                Intent it = new Intent(getApplicationContext(), EventLog.class);
                 startActivity(it);
             }
         });
@@ -56,8 +58,8 @@ public class MainActivity extends Activity {
         viewmapBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent it = new Intent(getApplicationContext(),MapView.class);
-                it.putExtra("category","전체");
+                Intent it = new Intent(getApplicationContext(), MapView.class);
+                it.putExtra("category", "전체");
                 startActivity(it);
             }
         });
@@ -65,7 +67,7 @@ public class MainActivity extends Activity {
         statisticBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent it = new Intent(getApplicationContext(),Statistics.class);
+                Intent it = new Intent(getApplicationContext(), Statistics.class);
                 startActivity(it);
             }
         });
@@ -73,7 +75,7 @@ public class MainActivity extends Activity {
         goalBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent it = new Intent(getApplicationContext(),MapView.class);
+                Intent it = new Intent(getApplicationContext(), MapView.class);
                 startActivity(it);
             }
         });
@@ -83,11 +85,9 @@ public class MainActivity extends Activity {
             public void onClick(View view) {
                 //데이터 베이스 삭제
                 dbManager.clear();
-                Toast.makeText(getApplicationContext(),"모두 삭제되었습니다.",LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "삭제되었습니다.", LENGTH_SHORT).show();
             }
         });
-
-
     }
 
     private void checkDangerousPermissions(){
