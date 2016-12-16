@@ -75,7 +75,7 @@ public class MainActivity extends Activity {
         goalBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent it = new Intent(getApplicationContext(), MapView.class);
+                Intent it = new Intent(getApplicationContext(), GoalManager.class);
                 startActivity(it);
             }
         });

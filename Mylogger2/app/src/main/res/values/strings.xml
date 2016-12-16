@@ -1,6 +1,7 @@
 <resources>
 <string name="app_name">LifeLogger</string>
 <string name="category_prompt">Choose a category</string>
+<string name="goalmanager">목표관리</string>
 
 <string-array name="category_arrays">
     <item>공부</item>

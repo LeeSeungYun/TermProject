@@ -2,6 +2,7 @@ package com.example.leeseungyun.mylogger2;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -25,6 +26,7 @@ import java.util.StringTokenizer;
  * Created by Lee Seung Yun on 2016-11-24.
  */
 public class EventLog extends AppCompatActivity {
+    String imgPath = "aaa";
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eventlog);
@@ -39,6 +41,7 @@ public class EventLog extends AppCompatActivity {
         Button inputBtn = (Button) findViewById(R.id.logBtn);
         Button cancelBtn = (Button) findViewById(R.id.backBtn);
 
+
         inputBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Date date = new Date(calendarView.getDate());
@@ -51,6 +54,7 @@ public class EventLog extends AppCompatActivity {
                 String day = strToken.nextToken(); //일
                 String text = content.getText().toString(); //이벤트 내용
                 String category = spinner.getSelectedItem().toString(); //분류
+//                Toast.makeText(getApplicationContext(),imgPath,Toast.LENGTH_SHORT).show();
                 dbManager.insert("insert into EventDB values(null,"+String.valueOf(lat)+","+String.valueOf(lon)+","+year+","+month+","+day+",'"+category+"','"+text+"');");
                 finish();
             }
@@ -87,8 +91,9 @@ public class EventLog extends AppCompatActivity {
         if(!storage.exists()){storage.mkdirs();}
         try {
             File file = File.createTempFile(imgName, ".jpg", storage);
-            path = file.getAbsolutePath();
-            File f = new File(path);
+            imgPath = file.getAbsolutePath();
+//            Toast.makeText(getApplicationContext(),imgPath,Toast.LENGTH_SHORT).show();
+            File f = new File(imgPath);
             Uri contentUri = Uri.fromFile(f);
             Intent mediaScan = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
             mediaScan.setData(contentUri);

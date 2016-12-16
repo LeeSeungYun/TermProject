@@ -26,6 +26,8 @@
         <activity android:name=".Statistics"></activity>
         <activity android:name=".EventLog"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity android:name=".GoalManager"
+            android:label="@string/goalmanager"></activity>
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyC6ozNqlkYhfcMiPH0DCmhjRJCf-aSdukA"/>
